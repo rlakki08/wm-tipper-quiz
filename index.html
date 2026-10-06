@@ -1,0 +1,1220 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Welcher WM-Tipper bist du? – Das Quiz zur WM 2030 | tipmaster.de</title>
+<meta name="description" content="Bauchtipper, Statistik-Hexe oder 2:1-Beamter? Finde in 7 Fragen heraus, welcher WM-Tipper du bist, und hol dir deinen Strategie-Tipp für die Tipprunde. Kostenlos auf tipmaster.de.">
+<meta name="theme-color" content="#0a0e1a">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="tipmaster.de">
+<meta property="og:locale" content="de_DE">
+<meta property="og:title" content="Welcher WM-Tipper bist du?">
+<meta property="og:description" content="7 Fragen, 6 Tipper-Typen: Finde heraus, wie du wirklich tippst. Das kostenlose Quiz zur WM 2030 von tipmaster.de.">
+<meta property="og:url" content="https://tipmaster.de/world-cup/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Welcher WM-Tipper bist du?">
+<meta name="twitter:description" content="7 Fragen, 6 Tipper-Typen: Finde heraus, wie du wirklich tippst.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230a0e1a'/%3E%3Ccircle cx='32' cy='32' r='20' fill='%23ffcc33'/%3E%3Cpath d='M32 22l9 6.5-3.4 10.5H26.4L23 28.5z' fill='%230a0e1a'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;display=swap">
+<style>
+:root{
+  --navy:#0f172a;
+  --bar:#0a0e1a;
+  --yellow:#ffcc33;
+  --ink:#1f2937;
+  --green:#3d8a5c;
+  --green-hi:#4ade80;
+  --text:#e2e8f0;
+  --muted:#aab6c8;
+  --line:rgba(148,163,184,.24);
+  --accent:#ffcc33;
+  --accent-soft:rgba(255,204,51,.12);
+  --accent-glow:rgba(255,204,51,.35);
+  --font:"Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  --display:"Bebas Neue","Oswald",Impact,"Arial Narrow",sans-serif;
+  --emoji:"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{
+  margin:0;min-height:100vh;min-height:100dvh;
+  display:flex;flex-direction:column;
+  background:var(--navy);color:var(--text);
+  font:400 16px/1.6 var(--font);
+  -webkit-font-smoothing:antialiased;
+  overflow-wrap:break-word;hyphens:manual;-webkit-hyphens:manual;
+}
+h1,h2,h3,p{margin:0}
+button,a{font:inherit}
+button{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+:focus-visible{outline:3px solid var(--yellow);outline-offset:3px}
+[tabindex="-1"]:focus{outline:none}
+.sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+
+/* ---------- Stadium backdrop (pure CSS/SVG) ---------- */
+.stadium{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none;
+  background:linear-gradient(180deg,#02040b 0%,#060c20 30%,#0c1636 52%,#0f172a 64%)}
+.stars{position:absolute;inset:0 0 50% 0;opacity:.55;
+  background:
+    radial-gradient(1px 1px at 12% 18%,#fff,transparent),
+    radial-gradient(1px 1px at 33% 8%,#cbd5e1,transparent),
+    radial-gradient(1.5px 1.5px at 51% 22%,#fff,transparent),
+    radial-gradient(1px 1px at 68% 12%,#e2e8f0,transparent),
+    radial-gradient(1px 1px at 82% 30%,#fff,transparent),
+    radial-gradient(1px 1px at 24% 36%,#94a3b8,transparent),
+    radial-gradient(1.5px 1.5px at 90% 6%,#fff,transparent),
+    radial-gradient(1px 1px at 44% 40%,#cbd5e1,transparent)}
+.flood{position:absolute;top:-34vmax;width:80vmax;height:80vmax;border-radius:50%;
+  background:radial-gradient(closest-side,rgba(255,250,232,.62),rgba(255,236,179,.22) 38%,rgba(255,236,179,.06) 62%,transparent 76%);
+  animation:flicker 11s infinite}
+.flood.l{left:-38vmax}
+.flood.r{right:-38vmax;animation-delay:-5.7s}
+.beam{position:absolute;top:0;width:70vw;height:90vh;opacity:.5;mix-blend-mode:screen;
+  background:linear-gradient(180deg,rgba(255,244,214,.20),rgba(255,244,214,0) 85%)}
+.beam.l{left:0;clip-path:polygon(0 0,9% 0,100% 100%,55% 100%);animation:flicker 11s infinite}
+.beam.r{right:0;clip-path:polygon(91% 0,100% 0,45% 100%,0 100%);animation:flicker 11s -5.7s infinite}
+.tower{position:absolute;top:14px;width:64px;height:40px;border-radius:6px;
+  background:
+    radial-gradient(circle,#fffbea 0 4px,transparent 5px) 0 0/16px 13px,
+    #1e293b;
+  box-shadow:0 0 18px 6px rgba(255,248,220,.55),0 0 60px 20px rgba(255,236,179,.25)}
+.tower.l{left:14px;transform:rotate(-12deg)}
+.tower.r{right:14px;transform:rotate(12deg)}
+.stand{position:absolute;left:-10%;right:-10%;bottom:30vh;height:24vh;
+  border-radius:50% 50% 0 0/38% 38% 0 0;
+  border-top:2px solid rgba(226,232,240,.10);
+  background:
+    radial-gradient(circle,rgba(255,255,255,.28) 1px,transparent 1.7px) 0 0/9px 7px,
+    radial-gradient(circle,rgba(255,204,51,.22) 1px,transparent 1.7px) 4px 3px/13px 11px,
+    radial-gradient(circle,rgba(244,63,94,.20) 1px,transparent 1.7px) 2px 5px/17px 9px,
+    radial-gradient(circle,rgba(56,189,248,.18) 1px,transparent 1.7px) 7px 1px/23px 13px,
+    linear-gradient(180deg,#0d1730,#060a16)}
+.stand::after{content:"";position:absolute;inset:0;border-radius:inherit;
+  background:
+    radial-gradient(circle,#fff 0 1.5px,transparent 2.5px) 11px 7px/97px 53px,
+    radial-gradient(circle,#fff 0 1.5px,transparent 2.5px) 61px 31px/131px 71px;
+  opacity:0;animation:flash 3.4s steps(1) infinite}
+.board{position:absolute;left:0;right:0;bottom:30vh;height:22px;overflow:hidden;
+  background:linear-gradient(180deg,#05070f,#0b1020);
+  border-top:1px solid rgba(255,204,51,.35);border-bottom:1px solid rgba(255,204,51,.2);
+  box-shadow:0 0 24px rgba(255,204,51,.12)}
+.board-track{display:flex;width:max-content;white-space:nowrap;
+  font:400 16px/22px var(--display);letter-spacing:.18em;color:var(--yellow);
+  text-shadow:0 0 8px rgba(255,204,51,.6);animation:marquee 40s linear infinite}
+.board-track span{padding-right:2em}
+.pitch-wrap{position:absolute;left:0;right:0;bottom:0;height:30vh;overflow:hidden;
+  perspective:260px;perspective-origin:50% -30%}
+.pitch{position:absolute;left:-60%;width:220%;bottom:0;height:420%;
+  transform-origin:50% 100%;transform:rotateX(62deg);
+  background:repeating-linear-gradient(180deg,#1a6a35 0 70px,#1f7a3d 70px 140px)}
+.pitch svg{position:absolute;left:0;bottom:0;width:100%;height:38%;overflow:visible}
+.pitch-wrap::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(6,10,22,.85),rgba(6,10,22,.15) 35%,rgba(6,10,22,0) 60%,rgba(6,10,22,.35))}
+.vignette{position:absolute;inset:0;background:radial-gradient(120% 90% at 50% 40%,transparent 55%,rgba(2,4,11,.65))}
+
+@keyframes flicker{0%,88%,100%{opacity:1}89%{opacity:.78}90%{opacity:1}91.5%{opacity:.86}93%{opacity:1}}
+@keyframes flash{0%{opacity:0}12%{opacity:.9}14%{opacity:0}57%{opacity:.7}59%{opacity:0}}
+@keyframes marquee{to{transform:translateX(-50%)}}
+
+/* ---------- Header ---------- */
+.topbar{position:sticky;top:0;z-index:5;display:flex;align-items:center;justify-content:space-between;gap:12px;
+  padding:12px 16px;padding-top:max(12px,env(safe-area-inset-top));
+  background:rgba(10,14,26,.94);border-bottom:1px solid rgba(255,255,255,.07);
+  -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.brand{display:inline-flex;align-items:center;gap:8px;color:#fff;text-decoration:none;font-weight:800;font-size:18px;letter-spacing:-.02em;white-space:nowrap}
+.brand svg{width:26px;height:26px;flex:0 0 auto}
+.brand b{color:var(--yellow);font-weight:800}
+.teaser{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:13px;line-height:1.3;color:#fff;text-align:right;overflow-wrap:normal;hyphens:manual}
+.teaser .dot{width:8px;height:8px;border-radius:50%;background:var(--green-hi);flex:0 0 auto;box-shadow:0 0 0 0 rgba(74,222,128,.6);animation:pulse 2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(74,222,128,.55)}70%{box-shadow:0 0 0 8px rgba(74,222,128,0)}100%{box-shadow:0 0 0 0 rgba(74,222,128,0)}}
+
+/* ---------- Layout / card ---------- */
+.wrap{flex:1 0 auto;width:100%;max-width:592px;margin:0 auto;padding:20px 16px 28px}
+.card{position:relative;border-radius:24px;padding:28px 20px 26px;
+  background:linear-gradient(180deg,rgba(15,23,42,.93),rgba(10,14,26,.95));
+  border:1px solid rgba(255,255,255,.10);
+  box-shadow:0 30px 80px rgba(0,0,0,.55),inset 0 1px 0 rgba(255,255,255,.06);
+  -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.card::before{content:"";position:absolute;left:24px;right:24px;top:-1px;height:3px;border-radius:0 0 3px 3px;
+  background:linear-gradient(90deg,var(--green-hi),var(--yellow))}
+.screen.enter{animation:enter .38s cubic-bezier(.2,.8,.2,1)}
+@keyframes enter{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+
+.eyebrow{font-size:12px;line-height:1.4;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--green-hi);hyphens:manual}
+h1{margin-top:10px;font-weight:800;font-size:32px;line-height:36px;letter-spacing:-.02em;color:#fff;hyphens:manual}
+.lead{margin-top:14px;color:var(--text);font-size:16px}
+.muted{color:var(--muted)}
+
+/* Intro scoreboard */
+.scoreboard{margin:22px 0 0;border-radius:14px;padding:12px 14px;
+  background:
+    radial-gradient(circle at 1px 1px,rgba(255,255,255,.06) 1px,transparent 1.5px) 0 0/5px 5px,
+    linear-gradient(180deg,#05070f,#0b1222);
+  border:1px solid rgba(255,255,255,.08);box-shadow:inset 0 0 0 3px #04060c,inset 0 10px 30px rgba(0,0,0,.6)}
+.sb-match{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:10px;font-family:var(--display);letter-spacing:.06em;line-height:1}
+.sb-team{font-size:22px;color:#fff;overflow-wrap:normal}
+.sb-team:last-child{text-align:right}
+.sb-score{font-size:40px;color:var(--yellow);text-shadow:0 0 12px rgba(255,204,51,.55)}
+.sb-meta{display:flex;justify-content:space-between;gap:8px;margin-top:8px;font-family:var(--display);font-size:14px;letter-spacing:.14em;color:var(--green-hi);line-height:1.2}
+.sb-meta .live{color:#fda4af}
+
+.persona-row{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin:20px 0 0;padding:0;list-style:none}
+.persona-row li{width:44px;height:44px;display:grid;place-items:center;border-radius:50%;font:22px/1 var(--emoji);
+  background:#111b31;border:2px solid var(--c,#334155);box-shadow:0 0 14px -4px var(--c,#334155)}
+.intro-cta{margin-top:24px;display:grid;gap:10px;justify-items:center}
+.meta{font-size:13px;color:var(--muted);text-align:center}
+.kbd-hint{display:none;font-size:13px;color:var(--muted);text-align:center;margin-top:14px}
+@media (hover:hover) and (pointer:fine){.kbd-hint{display:block}}
+kbd{font:700 12px/1 var(--font);padding:3px 6px;border-radius:6px;background:#1e293b;border:1px solid #334155;color:#fff}
+
+/* ---------- Buttons ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:14px 26px;border-radius:999px;border:0;cursor:pointer;
+  font-weight:800;font-size:16px;line-height:1.2;text-decoration:none;text-align:center;transition:transform .12s ease,box-shadow .15s ease,background-color .15s ease;overflow-wrap:normal;hyphens:manual}
+.btn svg{width:20px;height:20px;flex:0 0 auto}
+.btn:active{transform:scale(.97)}
+.btn-primary{background:var(--yellow);color:var(--ink);box-shadow:0 10px 30px -8px rgba(255,204,51,.6)}
+.btn-primary:hover{background:#ffd75c;box-shadow:0 14px 36px -8px rgba(255,204,51,.75)}
+.btn-primary:focus-visible{outline-color:#fff}
+.btn-secondary{background:#fff;color:var(--navy)}
+.btn-secondary:hover{background:#f1f5f9}
+.btn-ghost{background:transparent;color:var(--text);border:1.5px solid rgba(226,232,240,.35)}
+.btn-ghost:hover{border-color:#fff;color:#fff}
+.btn-block{width:100%}
+.btn-lg{min-height:58px;font-size:17px;padding:16px 30px}
+
+/* ---------- Quiz ---------- */
+.quiz-top{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.back{display:inline-flex;align-items:center;gap:6px;min-height:44px;padding:8px 14px 8px 10px;border-radius:999px;
+  border:1.5px solid rgba(226,232,240,.25);background:transparent;color:var(--text);font-weight:700;font-size:14px;cursor:pointer}
+.back:hover{border-color:#fff;color:#fff}
+.back svg{width:18px;height:18px}
+.q-count{font-weight:700;font-size:14px;color:var(--muted)}
+.led{margin-top:14px;border-radius:14px;padding:12px 14px 14px;
+  background:
+    radial-gradient(circle at 1px 1px,rgba(255,255,255,.06) 1px,transparent 1.5px) 0 0/5px 5px,
+    linear-gradient(180deg,#05070f,#0b1222);
+  border:1px solid rgba(255,255,255,.08);box-shadow:inset 0 0 0 3px #04060c}
+.led-row{display:flex;align-items:baseline;justify-content:space-between;gap:10px;font-family:var(--display);line-height:1}
+.led-label{font-size:16px;letter-spacing:.16em;color:var(--green-hi)}
+.led-digits{font-size:38px;letter-spacing:.06em;color:var(--yellow);text-shadow:0 0 12px rgba(255,204,51,.55);font-variant-numeric:tabular-nums}
+.led-digits small{font-size:24px;color:rgba(255,204,51,.55);text-shadow:none}
+.segments{display:grid;grid-template-columns:repeat(var(--n,7),1fr);gap:5px;margin-top:10px}
+.segments i{height:8px;border-radius:3px;background:#1b2537;transition:background-color .3s,box-shadow .3s}
+.segments i.on{background:var(--green-hi);box-shadow:0 0 10px rgba(74,222,128,.6)}
+.segments i.now{background:var(--yellow);box-shadow:0 0 10px rgba(255,204,51,.7)}
+.q-text{hyphens:manual;-webkit-hyphens:manual;margin-top:22px;font-weight:800;font-size:23px;line-height:1.3;letter-spacing:-.015em;color:#fff}
+.answers{display:grid;gap:12px;margin:20px 0 0;padding:0;list-style:none}
+.answer{display:flex;align-items:center;gap:14px;width:100%;min-height:72px;padding:12px 16px 12px 12px;text-align:left;cursor:pointer;
+  font-weight:600;font-size:16px;line-height:1.4;color:var(--text);
+  background:
+    radial-gradient(circle at 1px 1px,rgba(255,255,255,.045) 1px,transparent 1.5px) 0 0/6px 6px,
+    linear-gradient(180deg,#14203a,#0c1426);
+  border:1.5px solid rgba(148,163,184,.28);border-radius:16px;
+  transition:transform .12s ease,border-color .15s ease,box-shadow .15s ease}
+@media (hover:hover){.answer:hover{border-color:rgba(255,204,51,.75);box-shadow:0 8px 24px rgba(0,0,0,.35),0 0 0 1px rgba(255,204,51,.25)}}
+.answer:active{transform:scale(.98)}
+.answer[aria-pressed="true"]{border-color:var(--yellow);
+  background:radial-gradient(circle at 1px 1px,rgba(255,255,255,.05) 1px,transparent 1.5px) 0 0/6px 6px,linear-gradient(180deg,#2a2a1e,#1a1a12)}
+.answer.picked{animation:press .28s ease-out}
+@keyframes press{0%{transform:scale(1)}35%{transform:scale(.96)}100%{transform:scale(1)}}
+.jersey{flex:0 0 auto;width:46px;height:46px;display:grid;place-items:center;padding-top:9px;
+  background:#fff;color:var(--navy);font:400 25px/1 var(--display);
+  clip-path:polygon(30% 0,40% 7%,60% 7%,70% 0,100% 17%,89% 42%,78% 36%,78% 100%,22% 100%,22% 36%,11% 42%,0 17%);
+  transition:background-color .15s}
+.answer[aria-pressed="true"] .jersey{background:var(--yellow);color:var(--ink)}
+@media (hover:hover){.answer:hover .jersey{background:var(--yellow);color:var(--ink)}}
+.answer-text{flex:1 1 auto;min-width:0}
+
+/* ---------- Result ---------- */
+.result{text-align:center}
+.badge{width:128px;height:128px;margin:16px auto 0;border-radius:50%;display:grid;place-items:center;
+  font:66px/1 var(--emoji);
+  background:radial-gradient(circle at 50% 38%,var(--accent-glow),rgba(11,18,34,0) 70%),#0b1222;
+  box-shadow:0 0 0 3px var(--accent),0 0 48px var(--accent-glow);
+  animation:pop .6s cubic-bezier(.2,1.4,.4,1)}
+@keyframes pop{from{transform:scale(.4);opacity:0}to{transform:none;opacity:1}}
+.r-pre{margin-top:18px;font-weight:600;font-size:15px;color:var(--muted)}
+.r-name{hyphens:manual;-webkit-hyphens:manual;margin-top:2px;font-weight:800;font-size:32px;line-height:1.12;letter-spacing:-.02em;color:var(--accent)}
+.r-desc{margin-top:14px;font-size:17px;color:var(--text)}
+.tip{margin-top:22px;text-align:left;border-radius:16px;padding:16px 18px;background:var(--accent-soft);border:1px solid var(--accent-glow);border-left:5px solid var(--accent)}
+.tip .eyebrow{color:var(--accent);display:flex;align-items:center;gap:8px}
+.tip p{margin-top:6px;color:var(--text);font-size:15.5px}
+.card-label{margin-top:28px;text-align:left}
+.preview{position:relative;margin-top:10px;border-radius:18px;overflow:hidden;background:#0b1222;
+  box-shadow:0 0 0 1px rgba(255,255,255,.1),0 20px 50px rgba(0,0,0,.5)}
+.preview canvas{display:block;width:100%;height:auto;aspect-ratio:1080/1350;transition:opacity .3s}
+.preview.loading canvas{opacity:.35}
+.preview .spinner{position:absolute;inset:0;display:none;place-items:center;font-weight:700;font-size:14px;color:var(--muted)}
+.preview.loading .spinner{display:grid}
+.actions{display:grid;grid-template-columns:1fr;gap:10px;margin-top:16px}
+@media (min-width:420px){.actions{grid-template-columns:1fr 1fr}}
+.cta-box{margin-top:26px;border-radius:18px;padding:20px 18px;text-align:center;
+  background:linear-gradient(160deg,rgba(74,222,128,.10),rgba(255,204,51,.08));border:1px solid rgba(255,204,51,.25)}
+.cta-box h3{font-weight:800;font-size:20px;line-height:1.25;letter-spacing:-.01em;color:#fff}
+.cta-box p{margin:6px 0 16px;font-size:15px;color:var(--text)}
+.restart{margin-top:14px}
+@media (max-width:399px){
+  .card{padding:26px 18px 24px}
+  .cta-box{padding:18px 14px}
+  .btn-lg{font-size:16px;padding:16px 18px}
+  .cta-box .btn svg{display:none}
+}
+
+/* ---------- Footer / toast ---------- */
+.foot{flex:0 0 auto;padding:4px 16px 28px;padding-bottom:max(28px,env(safe-area-inset-bottom));text-align:center;font-size:13px;color:#cbd5e1;text-shadow:0 1px 6px rgba(0,0,0,.9)}
+.foot strong{color:#fff;font-weight:700}
+.foot p+p{margin-top:2px}
+.toast{position:fixed;left:50%;bottom:24px;z-index:20;max-width:calc(100% - 32px);transform:translate(-50%,20px);opacity:0;pointer-events:none;
+  padding:12px 20px;border-radius:999px;background:#fff;color:var(--navy);font-weight:800;font-size:15px;box-shadow:0 12px 40px rgba(0,0,0,.45);
+  transition:opacity .2s,transform .2s;text-align:center}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+
+@media (min-width:600px){
+  .topbar{padding:14px 28px}
+  .brand{font-size:20px}
+  .teaser{font-size:15px}
+  .wrap{padding-top:40px}
+  .card{padding:40px 40px 34px}
+  h1{font-size:44px;line-height:48px}
+  .lead{font-size:17px}
+  .q-text{font-size:27px}
+  .answer{font-size:17px}
+  .r-name{font-size:40px}
+  .badge{width:148px;height:148px;font-size:78px}
+}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
+  .stand::after{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- Decorative stadium: night sky, floodlights, stand, LED board, mown pitch -->
+<div class="stadium" aria-hidden="true">
+  <div class="stars"></div>
+  <div class="beam l"></div><div class="beam r"></div>
+  <div class="flood l"></div><div class="flood r"></div>
+  <div class="tower l"></div><div class="tower r"></div>
+  <div class="stand"></div>
+  <div class="board"><div class="board-track"><span>tipmaster.de</span><span>WM 2030</span><span>Tippspiel seit 1997</span><span>um die Ehre</span><span>tipmaster.de</span><span>WM 2030</span><span>Tippspiel seit 1997</span><span>um die Ehre</span><span>tipmaster.de</span><span>WM 2030</span><span>Tippspiel seit 1997</span><span>um die Ehre</span><span>tipmaster.de</span><span>WM 2030</span><span>Tippspiel seit 1997</span><span>um die Ehre</span></div></div>
+  <div class="pitch-wrap">
+    <div class="pitch">
+      <svg viewBox="0 0 1000 400" preserveAspectRatio="xMidYMax meet">
+        <g fill="none" stroke="rgba(255,255,255,.55)" stroke-width="4">
+          <line x1="-4000" y1="170" x2="5000" y2="170"/>
+          <circle cx="500" cy="170" r="110"/>
+        </g>
+        <circle cx="500" cy="170" r="7" fill="rgba(255,255,255,.7)"/>
+      </svg>
+    </div>
+  </div>
+  <div class="vignette"></div>
+</div>
+
+<header class="topbar">
+  <a class="brand" href="https://tipmaster.de/" aria-label="tipmaster.de Startseite">
+    <svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="14" fill="#fff"/><path d="M16 9.5l6 4.4-2.3 7H12.3L10 13.9z" fill="#0f172a"/><path d="M16 2v7.5M22 13.9l7-2.6M19.7 20.9l4.3 6M12.3 20.9L8 26.9M10 13.9l-7-2.6" stroke="#0f172a" stroke-width="1.6" fill="none"/></svg>
+    <span>tipmaster<b>.de</b></span>
+  </a>
+  <p class="teaser"><span class="dot" aria-hidden="true"></span>Bereit für die WM 2030?</p>
+</header>
+
+<main class="wrap" id="main">
+  <div class="card">
+
+    <!-- Intro -->
+    <section class="screen" id="screen-intro" aria-labelledby="intro-title">
+      <p class="eyebrow">Das Tippspiel-Quiz zur WM 2030</p>
+      <h1 id="intro-title">Welcher WM-Tipper bist du?</h1>
+      <p class="lead">Sieben Fragen, ein Ergebnis: Finde heraus, wie du wirklich tippst, und hol dir den passenden Strategie-Tipp für deine Tipprunde.</p>
+
+      <div class="scoreboard" aria-hidden="true">
+        <div class="sb-match"><span class="sb-team">Du</span><span class="sb-score">0:0</span><span class="sb-team">Tipprunde</span></div>
+        <div class="sb-meta"><span>WM 2030 · Anpfiff</span><span class="live">● Live</span></div>
+      </div>
+
+      <ul class="persona-row" id="persona-row" aria-label="Sechs Tipper-Typen"></ul>
+
+      <div class="intro-cta">
+        <button type="button" class="btn btn-primary btn-lg btn-block" id="start-btn">
+          Quiz starten
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <p class="meta">7 Fragen · ca. 1 Minute · kostenlos</p>
+      </div>
+    </section>
+
+    <!-- Question -->
+    <section class="screen" id="screen-quiz" aria-labelledby="q-text" hidden>
+      <div class="quiz-top">
+        <button type="button" class="back" id="back-btn">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Zurück
+        </button>
+        <p class="q-count" id="q-count">Frage 1 von 7</p>
+      </div>
+
+      <div class="led" role="progressbar" id="progress" aria-label="Fortschritt" aria-valuemin="1" aria-valuemax="7" aria-valuenow="1" aria-valuetext="Frage 1 von 7">
+        <div class="led-row" aria-hidden="true">
+          <span class="led-label">Spielstand</span>
+          <span class="led-digits"><span id="led-now">01</span><small> / <span id="led-total">07</span></small></span>
+        </div>
+        <div class="segments" id="segments" aria-hidden="true"></div>
+      </div>
+
+      <p class="sr-only" id="q-live" aria-live="polite"></p>
+      <h2 class="q-text" id="q-text" tabindex="-1"></h2>
+      <div class="answers" id="answers" role="group" aria-labelledby="q-text"></div>
+      <p class="kbd-hint">Tipp: Mit den Tasten <kbd>1</kbd>–<kbd>4</kbd> antwortest du blitzschnell.</p>
+    </section>
+
+    <!-- Result -->
+    <section class="screen result" id="screen-result" aria-labelledby="r-name" hidden>
+      <p class="eyebrow">Dein Tipper-Typ</p>
+      <div class="badge" id="r-emoji" aria-hidden="true"></div>
+      <p class="r-pre">Du bist …</p>
+      <h2 class="r-name" id="r-name" tabindex="-1"></h2>
+      <p class="r-desc" id="r-desc"></p>
+
+      <div class="tip">
+        <p class="eyebrow"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Dein Strategie-Tipp</p>
+        <p id="r-tip"></p>
+      </div>
+
+      <p class="eyebrow card-label">Deine Ergebniskarte</p>
+      <div class="preview loading" id="preview">
+        <canvas id="result-canvas" width="1080" height="1350" role="img" aria-label="Ergebniskarte"></canvas>
+        <div class="spinner" aria-hidden="true">Karte wird gemalt …</div>
+      </div>
+      <div class="actions">
+        <button type="button" class="btn btn-secondary" id="save-btn">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Als Bild speichern
+        </button>
+        <button type="button" class="btn btn-secondary" id="share-btn">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="18" cy="5" r="2.6" fill="none" stroke="currentColor" stroke-width="2.2"/><circle cx="6" cy="12" r="2.6" fill="none" stroke="currentColor" stroke-width="2.2"/><circle cx="18" cy="19" r="2.6" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M8.3 10.8l7.4-4.3M8.3 13.2l7.4 4.3" stroke="currentColor" stroke-width="2.2"/></svg>
+          Teilen
+        </button>
+      </div>
+
+      <div class="cta-box">
+        <h3>Und jetzt: ab in die Tipprunde!</h3>
+        <p>Tipp die WM 2030 mit Freunden, Familie oder Kollegen – kostenlos auf tipmaster.de, dem Tippspiel seit 1997.</p>
+        <a class="btn btn-primary btn-lg btn-block" href="https://tipmaster.de/world-cup/" target="_blank" rel="noopener">
+          Jetzt kostenlos mittippen
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+
+      <button type="button" class="btn btn-ghost btn-block restart" id="restart-btn">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 1 0 2.4-5.7M4 4v5h5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Nochmal spielen
+      </button>
+    </section>
+
+  </div>
+</main>
+
+<footer class="foot">
+  <p><strong>Kostenlos · ohne Geld · um die Ehre</strong></p>
+  <p>tipmaster.de · Das Tippspiel seit 1997</p>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+
+<script type="application/json" id="quiz-data">{
+  "personas": [
+    {
+      "id": "bauch",
+      "name": "Der Bauchtipper",
+      "emoji": "🍀",
+      "description": "Du tippst aus dem Bauch heraus, und dein Bauch hat meistens eine Meinung. Tabellen findest du langweilig, und wenn’s mal passt, war das natürlich kein Zufall, sondern pures Gespür.",
+      "tip": "Schreib dein erstes Bauchgefühl auf und ändere es nur, wenn sich ein Stammspieler verletzt. Wer ständig umtippt, trifft am Ende oft nicht mal die Tendenz.",
+      "color": "#F97316"
+    },
+    {
+      "id": "statistik",
+      "name": "Die Statistik-Hexe",
+      "emoji": "🔮",
+      "description": "Bei dir gibt’s keinen Tipp ohne Formkurve, xG und direkten Vergleich. In der Tipprunde lachen sie über deine Tabellen, bis du am Ende wieder Tippkönigin bist.",
+      "tip": "Gönn dir pro Spieltag einen Tipp gegen deine eigenen Zahlen. Bei der WM gibt’s immer ein paar Ausreißer, und wer die mitnimmt, holt die Punkte, die den anderen fehlen.",
+      "color": "#A78BFA"
+    },
+    {
+      "id": "underdog",
+      "name": "Der Underdog-Romantiker",
+      "emoji": "🐕",
+      "description": "Für dich riecht jedes Spiel nach Sensation, und Favoriten sind nur zum Stürzen da. Du lebst für den einen Volltreffer, den sonst keiner in der Tipprunde hatte.",
+      "tip": "Heb dir die Überraschungstipps für die Gruppenphase auf, da gibt’s die meisten Sensationen. Sobald es ums Weiterkommen geht, lohnt sich öfter mal ein Tipp auf den Favoriten.",
+      "color": "#22C55E"
+    },
+    {
+      "id": "fan",
+      "name": "Der Fanbrillen-Tipper",
+      "emoji": "🧣",
+      "description": "Dein Team gewinnt jedes Spiel. Punkt. Objektiv ist das vielleicht nicht immer, aber dafür tippst du mit Schal, Trikot und ganz viel Herz.",
+      "tip": "Tipp dein Team ruhig zum Sieg, aber lieber knapp mit 1:0 oder 2:1 statt 4:0. Das trifft viel öfter genau, und die Punkte für die Tendenz hast du sowieso.",
+      "color": "#F43F5E"
+    },
+    {
+      "id": "zweieins",
+      "name": "Der 2:1-Beamte",
+      "emoji": "📋",
+      "description": "Du tippst 2:1, und wenn’s mal wild wird, eben 1:2. Mag langweilig sein, aber am Ende stehst du verdächtig oft im oberen Drittel der Tabelle.",
+      "tip": "Bleib bei deinem System, aber tipp bei ungleichen Duellen auch mal 3:0. Ein, zwei Volltreffer mehr machen aus einem Mittelfeldplatz schnell einen Podestplatz.",
+      "color": "#38BDF8"
+    },
+    {
+      "id": "chaos",
+      "name": "Der Last-Minute-Chaot",
+      "emoji": "⏰",
+      "description": "Du tippst fünf Minuten vor Anpfiff, gern auch mal vom Klo aus. Manchmal vergisst du’s ganz, und manchmal haust du ein 4:3 raus, das wirklich so ausgeht.",
+      "tip": "Stell dir einen Wecker auf eine Stunde vor dem ersten Spiel des Tages. Vergessene Tipps bringen null Punkte, und genau so holt man sich die Rote Laterne.",
+      "color": "#FACC15"
+    }
+  ],
+  "questions": [
+    {
+      "q": "Hand aufs Herz: Wie kommst du zu deinem Tipp?",
+      "answers": [
+        {
+          "text": "Aus dem Bauch heraus. Der erste Gedanke zählt.",
+          "weights": {
+            "bauch": 2,
+            "chaos": 1
+          }
+        },
+        {
+          "text": "Formkurve, xG, direkter Vergleich. Ich hab da ’ne Tabelle.",
+          "weights": {
+            "statistik": 2,
+            "zweieins": 1
+          }
+        },
+        {
+          "text": "Ich frag mich zuerst: Wo knallt’s heute?",
+          "weights": {
+            "underdog": 2,
+            "bauch": 1
+          }
+        },
+        {
+          "text": "Mit dem Herzen. Mein Team gewinnt sowieso.",
+          "weights": {
+            "fan": 2,
+            "underdog": 1
+          }
+        }
+      ]
+    },
+    {
+      "q": "Brasilien gegen Kap Verde. Was tippst du?",
+      "answers": [
+        {
+          "text": "2:1 Brasilien. Wie immer eigentlich.",
+          "weights": {
+            "zweieins": 2,
+            "statistik": 1
+          }
+        },
+        {
+          "text": "1:1. Kap Verde hält dagegen, ich spür das.",
+          "weights": {
+            "underdog": 2,
+            "bauch": 1
+          }
+        },
+        {
+          "text": "4:3 für irgendwen. Hauptsache Spektakel.",
+          "weights": {
+            "chaos": 2,
+            "underdog": 1
+          }
+        },
+        {
+          "text": "3:0. Die Zahlen sind da ziemlich eindeutig.",
+          "weights": {
+            "statistik": 2,
+            "zweieins": 1
+          }
+        }
+      ]
+    },
+    {
+      "q": "Letzter Spieltag, du liegst fünf Punkte hinter dem Tippkönig. Und jetzt?",
+      "answers": [
+        {
+          "text": "Ab jetzt nur noch Außenseiter. Wer nix riskiert, holt nix.",
+          "weights": {
+            "underdog": 2,
+            "chaos": 1
+          }
+        },
+        {
+          "text": "Ruhig bleiben. 2:1 hat mich noch nie im Stich gelassen.",
+          "weights": {
+            "zweieins": 2
+          }
+        },
+        {
+          "text": "Mein Team holt den Titel. Bonuspunkte, ich komme!",
+          "weights": {
+            "fan": 2,
+            "underdog": 1
+          }
+        },
+        {
+          "text": "Ich tipp spontan irgendwas Wildes und hoffe.",
+          "weights": {
+            "chaos": 2,
+            "bauch": 1
+          }
+        }
+      ]
+    },
+    {
+      "q": "Halbfinale: dein Team gegen den großen Turnierfavoriten. Dein Tipp?",
+      "answers": [
+        {
+          "text": "Mein Team gewinnt. Alles andere wäre Verrat.",
+          "weights": {
+            "fan": 2,
+            "bauch": 1
+          }
+        },
+        {
+          "text": "Ehrlich? Der Favorit ist stärker. 1:2.",
+          "weights": {
+            "statistik": 2
+          }
+        },
+        {
+          "text": "1:1 nach 90 Minuten. Die Tendenz passt da oft.",
+          "weights": {
+            "zweieins": 2,
+            "statistik": 1
+          }
+        },
+        {
+          "text": "Gegen mein Team. Dann gibt’s Punkte oder Party.",
+          "weights": {
+            "chaos": 2,
+            "zweieins": 1
+          }
+        }
+      ]
+    },
+    {
+      "q": "Wann gibst du deine Tipps ab?",
+      "answers": [
+        {
+          "text": "Direkt nach der Auslosung. Alle Gruppenspiele auf einen Schlag.",
+          "weights": {
+            "zweieins": 2,
+            "statistik": 1
+          }
+        },
+        {
+          "text": "Fünf Minuten vor Anpfiff. Oder in der Halbzeit vom Spiel davor.",
+          "weights": {
+            "chaos": 2
+          }
+        },
+        {
+          "text": "Die Spiele meines Teams sofort, der Rest irgendwann.",
+          "weights": {
+            "fan": 2,
+            "chaos": 1
+          }
+        },
+        {
+          "text": "Wenn mich das Gefühl packt. Das kommt dann schon.",
+          "weights": {
+            "bauch": 2,
+            "underdog": 1
+          }
+        }
+      ]
+    },
+    {
+      "q": "Dein Tipp geht krachend daneben. Was schreibst du in die Tipprunde?",
+      "answers": [
+        {
+          "text": "Nix. Ich analysiere still, was ich übersehen hab.",
+          "weights": {
+            "statistik": 2
+          }
+        },
+        {
+          "text": "„Der Ball ist rund.“ Nächstes Mal tipp ich genauso.",
+          "weights": {
+            "bauch": 2,
+            "fan": 1
+          }
+        },
+        {
+          "text": "„Moralisch war das trotzdem ein Sieg!“",
+          "weights": {
+            "underdog": 2,
+            "fan": 1
+          }
+        },
+        {
+          "text": "Fünf Wut-Emojis und eine Sprachnachricht an den Trainer.",
+          "weights": {
+            "fan": 2,
+            "chaos": 1
+          }
+        }
+      ]
+    },
+    {
+      "q": "Und wie kommst du auf das genaue Ergebnis?",
+      "answers": [
+        {
+          "text": "2:1. Seit Jahren. Warum was ändern?",
+          "weights": {
+            "zweieins": 2
+          }
+        },
+        {
+          "text": "Was mir als Erstes einfällt. Passt meistens.",
+          "weights": {
+            "bauch": 2
+          }
+        },
+        {
+          "text": "Das wahrscheinlichste Ergebnis laut meiner Tabelle.",
+          "weights": {
+            "statistik": 2
+          }
+        },
+        {
+          "text": "Je verrückter, desto besser. 5:4 hat Stil.",
+          "weights": {
+            "chaos": 2,
+            "underdog": 1
+          }
+        }
+      ]
+    }
+  ]
+}</script>
+<script>
+(function () {
+  'use strict';
+
+  // ---------- Data ----------
+  var DATA = JSON.parse(document.getElementById('quiz-data').textContent);
+  var PERSONAS = DATA.personas;
+  var QUESTIONS = DATA.questions;
+  var SHARE_URL = 'https://tipmaster.de/world-cup/';
+  var EMOJI_FONT = '"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif';
+  var FONT = '"Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif';
+  var DISPLAY = '"Bebas Neue","Oswald",Impact,"Arial Narrow",sans-serif';
+
+  /**
+   * Pure scoring: sum persona weights of the chosen answers (indices[i] = answer index for question i).
+   * Highest total wins; ties go to the persona listed first in DATA.personas.
+   */
+  function scoreAnswers(indices) {
+    var totals = {};
+    PERSONAS.forEach(function (p) { totals[p.id] = 0; });
+    (Array.isArray(indices) ? indices : []).forEach(function (a, qi) {
+      var q = QUESTIONS[qi];
+      var ans = q && q.answers[a];
+      if (!ans) return;
+      Object.keys(ans.weights).forEach(function (id) {
+        if (Object.prototype.hasOwnProperty.call(totals, id)) totals[id] += Number(ans.weights[id]) || 0;
+      });
+    });
+    var best = PERSONAS[0].id;
+    PERSONAS.forEach(function (p) { if (totals[p.id] > totals[best]) best = p.id; });
+    return best;
+  }
+  window.scoreAnswers = scoreAnswers;
+
+  // ---------- Helpers ----------
+  var $ = function (id) { return document.getElementById(id); };
+  var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var pad2 = function (n) { return (n < 10 ? '0' : '') + n; };
+
+  function hexToRgba(hex, a) {
+    var h = hex.replace('#', '');
+    if (h.length === 3) h = h.split('').map(function (c) { return c + c; }).join('');
+    var n = parseInt(h, 16);
+    return 'rgba(' + ((n >> 16) & 255) + ',' + ((n >> 8) & 255) + ',' + (n & 255) + ',' + a + ')';
+  }
+
+  // "Der 2:1-Beamte" -> "der 2:1-Beamte" when the name runs inside a sentence.
+  function inSentence(name) { return name.replace(/^(Der|Die|Das) /, function (m) { return m.toLowerCase(); }); }
+
+  var toastTimer;
+  function toast(msg) {
+    var el = $('toast');
+    el.textContent = msg;
+    el.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () { el.classList.remove('show'); }, 2600);
+  }
+
+  // ---------- State & screens ----------
+  var state = { qi: 0, answers: [], locked: false, persona: null, blob: null, file: null, renderId: 0 };
+  var screens = { intro: $('screen-intro'), quiz: $('screen-quiz'), result: $('screen-result') };
+  var current = 'intro';
+
+  function showScreen(name) {
+    Object.keys(screens).forEach(function (k) { screens[k].hidden = k !== name; });
+    current = name;
+    var el = screens[name];
+    el.classList.remove('enter'); void el.offsetWidth; el.classList.add('enter');
+    window.scrollTo(0, 0);
+  }
+
+  // Intro: persona emoji chips
+  var row = $('persona-row');
+  PERSONAS.forEach(function (p) {
+    var li = document.createElement('li');
+    li.textContent = p.emoji;
+    li.title = p.name;
+    li.style.setProperty('--c', p.color);
+    li.setAttribute('aria-label', p.name);
+    row.appendChild(li);
+  });
+
+  // Progress segments
+  var segs = $('segments');
+  segs.style.setProperty('--n', QUESTIONS.length);
+  for (var s = 0; s < QUESTIONS.length; s++) segs.appendChild(document.createElement('i'));
+  $('led-total').textContent = pad2(QUESTIONS.length);
+  $('progress').setAttribute('aria-valuemax', QUESTIONS.length);
+
+  // ---------- Quiz ----------
+  function renderQuestion() {
+    var qi = state.qi, q = QUESTIONS[qi], total = QUESTIONS.length;
+    var label = 'Frage ' + (qi + 1) + ' von ' + total;
+    $('q-count').textContent = label;
+    $('led-now').textContent = pad2(qi + 1);
+    var pb = $('progress');
+    pb.setAttribute('aria-valuenow', qi + 1);
+    pb.setAttribute('aria-valuetext', label);
+    Array.prototype.forEach.call(segs.children, function (seg, i) {
+      seg.className = i < qi ? 'on' : (i === qi ? 'now' : '');
+    });
+    $('back-btn').setAttribute('aria-label', qi === 0 ? 'Zurück zum Start' : 'Zurück zur vorherigen Frage');
+
+    $('q-text').textContent = q.q;
+    var box = $('answers');
+    box.innerHTML = '';
+    q.answers.forEach(function (a, i) {
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'answer';
+      b.setAttribute('aria-pressed', state.answers[qi] === i ? 'true' : 'false');
+      b.innerHTML = '<span class="jersey" aria-hidden="true"></span><span class="answer-text"></span>';
+      b.firstChild.textContent = String(i + 1);
+      b.lastChild.textContent = a.text;
+      b.addEventListener('click', function () { pick(i); });
+      box.appendChild(b);
+    });
+
+    $('q-live').textContent = label;
+    var sc = screens.quiz;
+    sc.classList.remove('enter'); void sc.offsetWidth; sc.classList.add('enter');
+    $('q-text').focus({ preventScroll: true });
+  }
+
+  function pick(i) {
+    if (state.locked || current !== 'quiz') return;
+    var btns = $('answers').children;
+    if (!btns[i]) return;
+    state.locked = true;
+    Array.prototype.forEach.call(btns, function (b, j) { b.setAttribute('aria-pressed', j === i ? 'true' : 'false'); });
+    btns[i].classList.add('picked');
+    state.answers[state.qi] = i;
+    setTimeout(function () {
+      state.locked = false;
+      if (state.qi < QUESTIONS.length - 1) { state.qi++; renderQuestion(); }
+      else showResult();
+    }, reduceMotion ? 80 : 300);
+  }
+
+  function goBack() {
+    if (state.locked) return;
+    if (state.qi === 0) { showScreen('intro'); $('start-btn').focus(); return; }
+    state.qi--;
+    renderQuestion();
+  }
+
+  function startQuiz() {
+    state.qi = 0; state.answers = []; state.locked = false;
+    showScreen('quiz');
+    renderQuestion();
+  }
+
+  // ---------- Result ----------
+  function showResult() {
+    var id = scoreAnswers(state.answers.slice(0, QUESTIONS.length));
+    var p = PERSONAS.filter(function (x) { return x.id === id; })[0];
+    state.persona = p; state.blob = null; state.file = null;
+
+    var r = screens.result;
+    r.style.setProperty('--accent', p.color);
+    r.style.setProperty('--accent-soft', hexToRgba(p.color, 0.10));
+    r.style.setProperty('--accent-glow', hexToRgba(p.color, 0.38));
+    $('r-emoji').textContent = p.emoji;
+    $('r-name').textContent = p.name;
+    $('r-desc').textContent = p.description;
+    $('r-tip').textContent = p.tip;
+    $('result-canvas').setAttribute('aria-label', 'Ergebniskarte: Ich bin ' + inSentence(p.name) + '. ' + p.description + ' tipmaster.de/world-cup');
+
+    showScreen('result');
+    $('r-name').focus({ preventScroll: true });
+    buildCard(p);
+  }
+
+  // Draw the card, then pre-render the PNG so sharing can happen right on tap (keeps user activation).
+  function buildCard(p) {
+    var myId = ++state.renderId;
+    var preview = $('preview');
+    preview.classList.add('loading');
+    return drawCard($('result-canvas'), p).then(function () {
+      return new Promise(function (res) { $('result-canvas').toBlob(res, 'image/png'); });
+    }).then(function (blob) {
+      if (myId !== state.renderId || !blob) return;
+      state.blob = blob;
+      try { state.file = new File([blob], 'wm-tipper-' + p.id + '.png', { type: 'image/png' }); } catch (e) { state.file = null; }
+    }).catch(function (e) {
+      if (window.console) console.warn('Ergebniskarte konnte nicht erstellt werden', e);
+    }).then(function () {
+      if (myId === state.renderId) preview.classList.remove('loading');
+    });
+  }
+
+  // ---------- Canvas card ----------
+  function loadFonts() {
+    if (!document.fonts || !document.fonts.load) return Promise.resolve();
+    var loads = Promise.all([
+      document.fonts.load('800 64px "Plus Jakarta Sans"'),
+      document.fonts.load('700 28px "Plus Jakarta Sans"'),
+      document.fonts.load('600 40px "Plus Jakarta Sans"'),
+      document.fonts.load('400 40px "Plus Jakarta Sans"'),
+      document.fonts.load('400 64px "Bebas Neue"')
+    ]).then(function () { return document.fonts.ready; });
+    // Never block the card forever (e.g. offline): fall back after 3s.
+    var timeout = new Promise(function (res) { setTimeout(res, 3000); });
+    return Promise.race([loads, timeout]).catch(function () {});
+  }
+
+  function rrect(ctx, x, y, w, h, r) {
+    ctx.beginPath();
+    ctx.moveTo(x + r, y);
+    ctx.arcTo(x + w, y, x + w, y + h, r);
+    ctx.arcTo(x + w, y + h, x, y + h, r);
+    ctx.arcTo(x, y + h, x, y, r);
+    ctx.arcTo(x, y, x + w, y, r);
+    ctx.closePath();
+  }
+
+  // Break opportunities after spaces and after hyphens ("Underdog-|Romantiker").
+  function tokenize(text) {
+    var out = [];
+    text.split(/\s+/).filter(Boolean).forEach(function (word, wi) {
+      word.replace(/-/g, '-\u0000').split('\u0000').filter(Boolean).forEach(function (part, pi) {
+        out.push({ text: part, sep: (pi === 0 && wi > 0) ? ' ' : '' });
+      });
+    });
+    return out;
+  }
+
+  function hardBreak(ctx, line, maxWidth) {
+    var lines = [], chunk = '';
+    Array.from(line).forEach(function (ch) {
+      if (chunk && ctx.measureText(chunk + ch).width > maxWidth) { lines.push(chunk); chunk = ch; }
+      else chunk += ch;
+    });
+    if (chunk) lines.push(chunk);
+    return lines;
+  }
+
+  // measureText-based word wrap.
+  function wrapText(ctx, text, maxWidth) {
+    var lines = [], line = '';
+    tokenize(text).forEach(function (tok) {
+      var cand = line ? line + tok.sep + tok.text : tok.text;
+      if (!line || ctx.measureText(cand).width <= maxWidth) line = cand;
+      else { lines.push(line); line = tok.text; }
+    });
+    if (line) lines.push(line);
+    var out = [];
+    lines.forEach(function (l) {
+      if (ctx.measureText(l).width <= maxWidth) out.push(l);
+      else out.push.apply(out, hardBreak(ctx, l, maxWidth));
+    });
+    return out;
+  }
+
+  function setSpacing(ctx, px) { if ('letterSpacing' in ctx) ctx.letterSpacing = px + 'px'; }
+
+  // Deterministic pseudo-random for the crowd dots.
+  function rng(seed) { return function () { seed = (seed * 16807) % 2147483647; return (seed - 1) / 2147483646; }; }
+
+  function drawBackdrop(ctx, W, H, accent) {
+    // Night sky
+    var sky = ctx.createLinearGradient(0, 0, 0, H);
+    sky.addColorStop(0, '#02040b'); sky.addColorStop(0.35, '#081129'); sky.addColorStop(0.62, '#0f1a3a'); sky.addColorStop(1, '#0f172a');
+    ctx.fillStyle = sky; ctx.fillRect(0, 0, W, H);
+
+    // Light beams + floodlight glows from the top corners
+    [[70, 50, 1], [W - 70, 50, -1]].forEach(function (f) {
+      var beam = ctx.createLinearGradient(0, 0, 0, 1000);
+      beam.addColorStop(0, 'rgba(255,244,214,0.16)'); beam.addColorStop(1, 'rgba(255,244,214,0)');
+      ctx.fillStyle = beam;
+      ctx.beginPath(); ctx.moveTo(f[0], f[1]); ctx.lineTo(W / 2 + f[2] * 380, 1000); ctx.lineTo(W / 2 - f[2] * 120, 1000); ctx.closePath(); ctx.fill();
+      var g = ctx.createRadialGradient(f[0], f[1], 0, f[0], f[1], 640);
+      g.addColorStop(0, 'rgba(255,250,232,0.62)'); g.addColorStop(0.3, 'rgba(255,236,179,0.20)'); g.addColorStop(1, 'rgba(255,236,179,0)');
+      ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
+      // Light bank
+      ctx.save(); ctx.translate(f[0], f[1]); ctx.rotate(-f[2] * 0.2);
+      ctx.fillStyle = '#1e293b'; rrect(ctx, -58, -30, 116, 60, 10); ctx.fill();
+      ctx.shadowColor = 'rgba(255,248,220,0.95)'; ctx.shadowBlur = 24; ctx.fillStyle = '#fffbea';
+      for (var r = 0; r < 3; r++) for (var c = 0; c < 5; c++) { ctx.beginPath(); ctx.arc(-44 + c * 22, -16 + r * 16, 6, 0, Math.PI * 2); ctx.fill(); }
+      ctx.restore();
+    });
+
+    // Stand with crowd lights
+    var standTop = 640, standBottom = 880;
+    var st = ctx.createLinearGradient(0, standTop, 0, standBottom);
+    st.addColorStop(0, '#0d1730'); st.addColorStop(1, '#060a16');
+    ctx.fillStyle = st;
+    ctx.beginPath(); ctx.moveTo(0, standTop + 60); ctx.quadraticCurveTo(W / 2, standTop - 50, W, standTop + 60); ctx.lineTo(W, standBottom); ctx.lineTo(0, standBottom); ctx.closePath(); ctx.fill();
+    var rand = rng(1997), cols = ['255,255,255', '255,204,51', '244,63,94', '56,189,248', accent];
+    for (var i = 0; i < 900; i++) {
+      var x = rand() * W, y = standTop + 20 + rand() * (standBottom - standTop - 24);
+      var dy = (x - W / 2) / (W / 2); if (y < standTop + 60 - 110 * (1 - dy * dy) + 12) continue;
+      var col = cols[Math.floor(rand() * cols.length)];
+      ctx.fillStyle = col.charAt(0) === '#' ? hexToRgba(col, 0.35) : 'rgba(' + col + ',' + (0.12 + rand() * 0.3).toFixed(2) + ')';
+      ctx.beginPath(); ctx.arc(x, y, 1.6 + rand() * 1.6, 0, Math.PI * 2); ctx.fill();
+    }
+
+    // LED advertising board
+    ctx.fillStyle = '#05070f'; ctx.fillRect(0, standBottom, W, 34);
+    ctx.fillStyle = 'rgba(255,204,51,0.4)'; ctx.fillRect(0, standBottom, W, 2);
+    ctx.save(); ctx.font = '400 26px ' + DISPLAY; setSpacing(ctx, 5); ctx.fillStyle = '#ffcc33';
+    ctx.shadowColor = 'rgba(255,204,51,0.7)'; ctx.shadowBlur = 10; ctx.textBaseline = 'middle';
+    var board = 'TIPMASTER.DE   ·   WM 2030   ·   TIPPSPIEL SEIT 1997   ·   ', bx = -40;
+    while (bx < W) { ctx.fillText(board, bx, standBottom + 18); bx += ctx.measureText(board).width; }
+    ctx.restore();
+
+    // Mown pitch: stripes grow towards the viewer (fake perspective)
+    var top = standBottom + 34, n = 9;
+    for (var k = 0; k < n; k++) {
+      var y0 = top + (H - top) * Math.pow(k / n, 1.5), y1 = top + (H - top) * Math.pow((k + 1) / n, 1.5);
+      ctx.fillStyle = k % 2 ? '#1f7a3d' : '#1a6a35';
+      ctx.fillRect(0, y0, W, y1 - y0 + 1);
+    }
+    ctx.strokeStyle = 'rgba(255,255,255,0.55)'; ctx.lineWidth = 5;
+    var cy = top + (H - top) * 0.42;
+    ctx.beginPath(); ctx.moveTo(0, cy); ctx.lineTo(W, cy); ctx.stroke();
+    ctx.beginPath(); ctx.ellipse(W / 2, cy, 330, 92, 0, 0, Math.PI * 2); ctx.stroke();
+    ctx.fillStyle = 'rgba(255,255,255,0.7)'; ctx.beginPath(); ctx.ellipse(W / 2, cy, 12, 5, 0, 0, Math.PI * 2); ctx.fill();
+    var fade = ctx.createLinearGradient(0, top, 0, H);
+    fade.addColorStop(0, 'rgba(6,10,22,0.7)'); fade.addColorStop(0.35, 'rgba(6,10,22,0.05)'); fade.addColorStop(1, 'rgba(6,10,22,0.45)');
+    ctx.fillStyle = fade; ctx.fillRect(0, top, W, H - top);
+  }
+
+  function drawCard(canvas, p) {
+    return loadFonts().then(function () {
+      var ctx = canvas.getContext('2d');
+      var W = canvas.width, H = canvas.height;
+      ctx.clearRect(0, 0, W, H);
+      ctx.textBaseline = 'alphabetic';
+      drawBackdrop(ctx, W, H, p.color);
+
+      // Header row: wordmark + scoreboard label
+      ctx.textAlign = 'left'; setSpacing(ctx, -1);
+      ctx.font = '800 46px ' + FONT; ctx.fillStyle = '#ffffff';
+      ctx.fillText('tipmaster', 170, 128);
+      var wm = ctx.measureText('tipmaster').width;
+      ctx.fillStyle = '#ffcc33'; ctx.fillText('.de', 170 + wm, 128);
+      ctx.textAlign = 'right'; setSpacing(ctx, 3);
+      ctx.font = '400 58px ' + DISPLAY; ctx.fillStyle = '#ffcc33';
+      ctx.save(); ctx.shadowColor = 'rgba(255,204,51,0.6)'; ctx.shadowBlur = 16; ctx.fillText('WM 2030', W - 170, 130); ctx.restore();
+
+      // ---- Measure content to size the panel ----
+      var PX = 70, PW = W - 140, PTOP = 180, MAXW = 820, LIMIT = 1150;
+      var R = 112;
+      var eyebrowY = PTOP + 82, emojiCY = eyebrowY + 44 + R, preY = emojiCY + R + 74;
+
+      // Persona name: largest size that fits in <= 2 lines without breaking inside a word
+      setSpacing(ctx, -2);
+      var nameSize = 96, nameLines;
+      for (; nameSize >= 52; nameSize -= 4) {
+        ctx.font = '800 ' + nameSize + 'px ' + FONT;
+        var tooWide = tokenize(p.name).some(function (t) { return ctx.measureText(t.text).width > MAXW; });
+        nameLines = wrapText(ctx, p.name, MAXW);
+        if (!tooWide && nameLines.length <= 2) break;
+      }
+      var nameLH = Math.round(nameSize * 1.06);
+      var nameY = preY + 22 + nameSize * 0.92;
+      var nameEnd = nameY + (nameLines.length - 1) * nameLH;
+
+      // Description: shrink until the panel fits above the footer
+      setSpacing(ctx, 0);
+      var descSize = 42, descLines, descLH, descY, bottom;
+      for (; descSize >= 28; descSize -= 2) {
+        ctx.font = '400 ' + descSize + 'px ' + FONT;
+        descLines = wrapText(ctx, p.description, MAXW);
+        descLH = Math.round(descSize * 1.45);
+        descY = nameEnd + 64 + descSize;
+        bottom = descY + (descLines.length - 1) * descLH + 64;
+        if (bottom <= LIMIT) break;
+      }
+      var PH = Math.max(bottom, 900) - PTOP;
+
+      // ---- Panel ----
+      ctx.save();
+      ctx.shadowColor = 'rgba(0,0,0,0.55)'; ctx.shadowBlur = 60; ctx.shadowOffsetY = 20;
+      ctx.fillStyle = 'rgba(10,14,26,0.97)'; rrect(ctx, PX, PTOP, PW, PH, 48); ctx.fill();
+      ctx.restore();
+      ctx.strokeStyle = 'rgba(255,255,255,0.12)'; ctx.lineWidth = 2; rrect(ctx, PX, PTOP, PW, PH, 48); ctx.stroke();
+      ctx.save(); rrect(ctx, PX, PTOP, PW, PH, 48); ctx.clip();
+      var bar = ctx.createLinearGradient(PX, 0, PX + PW, 0);
+      bar.addColorStop(0, p.color); bar.addColorStop(1, '#ffcc33');
+      ctx.fillStyle = bar; ctx.fillRect(PX, PTOP, PW, 10);
+      ctx.restore();
+
+      ctx.textAlign = 'center';
+      // Eyebrow
+      ctx.font = '700 28px ' + FONT; setSpacing(ctx, 4); ctx.fillStyle = '#4ade80';
+      ctx.fillText('WELCHER WM-TIPPER BIST DU?', W / 2, eyebrowY);
+      setSpacing(ctx, 0);
+
+      // Emoji medallion
+      var glow = ctx.createRadialGradient(W / 2, emojiCY, 10, W / 2, emojiCY, R * 1.9);
+      glow.addColorStop(0, hexToRgba(p.color, 0.55)); glow.addColorStop(1, hexToRgba(p.color, 0));
+      ctx.fillStyle = glow; ctx.beginPath(); ctx.arc(W / 2, emojiCY, R * 1.9, 0, Math.PI * 2); ctx.fill();
+      ctx.fillStyle = '#0b1222'; ctx.beginPath(); ctx.arc(W / 2, emojiCY, R, 0, Math.PI * 2); ctx.fill();
+      ctx.strokeStyle = p.color; ctx.lineWidth = 8; ctx.stroke();
+      ctx.font = '130px ' + EMOJI_FONT;
+      var em = ctx.measureText(p.emoji);
+      var asc = em.actualBoundingBoxAscent || 100, desc = em.actualBoundingBoxDescent || 20;
+      ctx.fillStyle = '#ffffff';
+      ctx.fillText(p.emoji, W / 2, emojiCY + (asc - desc) / 2);
+
+      // "Ich bin …" + name
+      ctx.font = '600 44px ' + FONT; ctx.fillStyle = '#cbd5e1';
+      ctx.fillText('Ich bin …', W / 2, preY);
+      ctx.font = '800 ' + nameSize + 'px ' + FONT; setSpacing(ctx, -2); ctx.fillStyle = p.color;
+      nameLines.forEach(function (l, i) { ctx.fillText(l, W / 2, nameY + i * nameLH); });
+      setSpacing(ctx, 0);
+
+      // Divider
+      ctx.fillStyle = p.color; rrect(ctx, W / 2 - 50, nameEnd + 34, 100, 8, 4); ctx.fill();
+
+      // Description
+      ctx.font = '400 ' + descSize + 'px ' + FONT; ctx.fillStyle = '#e2e8f0';
+      descLines.forEach(function (l, i) { ctx.fillText(l, W / 2, descY + i * descLH); });
+
+      // Footer pill on the pitch
+      ctx.font = '800 46px ' + FONT; setSpacing(ctx, -1);
+      var url = 'tipmaster.de/world-cup';
+      var uw = ctx.measureText(url).width, pillW = uw + 120, pillH = 96, pillY = 1188;
+      ctx.save(); ctx.shadowColor = 'rgba(255,204,51,0.55)'; ctx.shadowBlur = 40;
+      ctx.fillStyle = '#ffcc33'; rrect(ctx, W / 2 - pillW / 2, pillY, pillW, pillH, pillH / 2); ctx.fill();
+      ctx.restore();
+      ctx.fillStyle = '#1f2937'; ctx.fillText(url, W / 2, pillY + 63);
+      setSpacing(ctx, 0);
+      ctx.font = '700 28px ' + FONT; ctx.fillStyle = '#ffffff';
+      ctx.save(); ctx.shadowColor = 'rgba(0,0,0,0.9)'; ctx.shadowBlur = 10;
+      ctx.fillText('Kostenlos · ohne Geld · um die Ehre', W / 2, 1326);
+      ctx.restore();
+    });
+  }
+
+  // ---------- Save / share ----------
+  function getBlob() {
+    if (state.blob) return Promise.resolve(state.blob);
+    return buildCard(state.persona).then(function () { return state.blob; });
+  }
+
+  function saveImage() {
+    if (!state.persona) return;
+    var id = state.persona.id;
+    getBlob().then(function (blob) {
+      if (!blob) { toast('Bild konnte nicht erstellt werden.'); return; }
+      var url = URL.createObjectURL(blob);
+      var a = document.createElement('a');
+      a.href = url;
+      a.download = 'wm-tipper-' + id + '.png';
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      setTimeout(function () { URL.revokeObjectURL(url); }, 1500);
+    });
+  }
+
+  function shareText() {
+    var p = state.persona;
+    return 'Ich bin ' + inSentence(p.name) + ' ' + p.emoji + ' Welcher WM-Tipper bist du? Mach das Quiz auf tipmaster.de:';
+  }
+
+  function copyLink(text) {
+    function legacy() {
+      var ta = document.createElement('textarea');
+      ta.value = text;
+      ta.setAttribute('readonly', '');
+      ta.style.cssText = 'position:fixed;top:0;left:0;opacity:0;pointer-events:none';
+      document.body.appendChild(ta);
+      ta.select();
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (e) { ok = false; }
+      ta.remove();
+      return ok;
+    }
+    var p = (navigator.clipboard && navigator.clipboard.writeText)
+      ? navigator.clipboard.writeText(text).then(function () { return true; }, legacy)
+      : Promise.resolve(legacy());
+    return p.then(function (ok) {
+      toast(ok ? 'Link kopiert!' : 'Kopieren ging nicht. Link: tipmaster.de/world-cup');
+    });
+  }
+
+  function share() {
+    if (!state.persona) return;
+    var text = shareText();
+    var title = 'Welcher WM-Tipper bist du?';
+    if (navigator.share) {
+      var data = { title: title, text: text, url: SHARE_URL };
+      var withFile = state.file && navigator.canShare && navigator.canShare({ files: [state.file] });
+      if (withFile) data.files = [state.file];
+      navigator.share(data).catch(function (err) {
+        if (err && err.name === 'AbortError') return; // user cancelled: do nothing
+        copyLink(text + ' ' + SHARE_URL);
+      });
+      return;
+    }
+    copyLink(text + ' ' + SHARE_URL);
+  }
+
+  // ---------- Events ----------
+  $('start-btn').addEventListener('click', startQuiz);
+  $('back-btn').addEventListener('click', goBack);
+  $('restart-btn').addEventListener('click', startQuiz);
+  $('save-btn').addEventListener('click', saveImage);
+  $('share-btn').addEventListener('click', share);
+
+  // Keyboard: 1–4 picks an answer on the question screen
+  document.addEventListener('keydown', function (e) {
+    if (current !== 'quiz' || e.altKey || e.ctrlKey || e.metaKey) return;
+    var n = parseInt(e.key, 10);
+    if (n >= 1 && n <= QUESTIONS[state.qi].answers.length) { e.preventDefault(); pick(n - 1); }
+  });
+})();
+</script>
+</body>
+</html>

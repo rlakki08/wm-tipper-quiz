@@ -1,0 +1,17 @@
+{
+  "name": "wm-tipper-quiz",
+  "version": "1.0.0",
+  "private": true,
+  "description": "„Welcher WM-Tipper bist du?“ – Persönlichkeits-Quiz für das Tippspiel auf tipmaster.de",
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "test": "node tests/balance.mjs"
+  },
+  "devDependencies": {
+    "html-minifier-terser": "^7.2.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
